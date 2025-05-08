@@ -1,10 +1,11 @@
-const { model, mongoose } = require("mongoose");
-
-
-const argon2 = require("argon2");
+import mongoose, { model } from "mongoose";
+import argon2 from "argon2";
 
 const userSchema = new mongoose.Schema(
   {
+    _id: {
+      type: mongoose.Schema.Types.ObjectId
+    },
     username: {
       type: String,
       required: true,
@@ -52,4 +53,5 @@ userSchema.index({username: "text"});
 
 const User = model("User", userSchema);
 
-module.exports = User;
+
+export default User;

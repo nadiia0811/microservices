@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { randomBytes } = require("crypto"); 
+import RefreshToken from "../models/refreshToken";
 
 
 const generateTokens = async (user: IUser) => {
@@ -24,4 +25,4 @@ const generateTokens = async (user: IUser) => {
   return {accessToken, refreshToken};
 };
 
-module.exports = generateTokens;
+export default generateTokens;

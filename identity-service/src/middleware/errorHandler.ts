@@ -1,5 +1,5 @@
-require("../utils/logger");
 import { Request, Response } from "express";
+import logger from "../utils/logger";
 
 interface CustomError extends Error {
   status?: number
@@ -18,4 +18,5 @@ const errorHandler = (
           });
 };
 
-module.exports = errorHandler;
+
+export default errorHandler;

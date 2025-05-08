@@ -13,7 +13,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
     if (error) {
       logger.warn("Validation error", error.details[0].message);
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         message: error.details[0].message,
       });
@@ -23,7 +23,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
     if (existingUser) {
       logger.warn("User already exists");
-      res.status(409).json({
+      return res.status(409).json({
         success: false,
         message: "User alredy exists",
       });
@@ -42,7 +42,7 @@ export const registerUser = async (req: Request, res: Response) => {
       refreshToken,
     });
   } catch (err) {
-    logger.error("Registration error ocuured", err);
+    logger.error("Registration error occured", err);
     res.status(500).json({
       success: false,
       message: "Internal server error",

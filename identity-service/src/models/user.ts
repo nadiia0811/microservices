@@ -3,9 +3,6 @@ import argon2 from "argon2";
 
 const userSchema = new mongoose.Schema(
   {
-    _id: {
-      type: mongoose.Schema.Types.ObjectId
-    },
     username: {
       type: String,
       required: true,

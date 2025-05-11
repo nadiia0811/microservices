@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose";
+import mongoose, { model, Model } from "mongoose";
 import argon2 from "argon2";
 
 const userSchema = new mongoose.Schema(
@@ -48,7 +48,7 @@ userSchema.methods.comparePassword = async function (
 
 userSchema.index({username: "text"});
 
-const User = model("User", userSchema);
+const User: Model<IUser> = model<IUser>("User", userSchema);
 
 
 export default User;

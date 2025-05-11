@@ -1,9 +1,6 @@
 import { Request, Response } from "express";
 import logger from "../utils/logger";
-
-interface CustomError extends Error {
-  status?: number
-}
+import CustomError from "../utils/customError";
 
 const errorHandler = (
     err: CustomError, 
